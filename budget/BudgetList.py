@@ -28,9 +28,10 @@ class BudgetList():
 
     def __next__(self):
         try:
-            print ("length of iter_e="+ str(len(self.iter_e))
+            #print ("length of iter_e=")
             return self.iter_e.__next__()
         except:
+            #print ("length of iter_o=")
             return self.iter_o.__next__()
 
 

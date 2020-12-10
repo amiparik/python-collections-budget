@@ -30,7 +30,7 @@ class BudgetList():
         try:
             #print ("length of iter_e=")
             return self.iter_e.__next__()
-        except:
+        except StopIteration as stop:
             #print ("length of iter_o=")
             return self.iter_o.__next__()
 
@@ -40,15 +40,18 @@ def main():
     expenses = Expense.Expenses()
     expenses.read_expenses('data/spending_data.csv')
     for expense in expenses.list:
-        myBudgetList.append(expense.amount)
+            myBudgetList.append(expense.amount)
     print ('The count of all expenses: ' + str(len(myBudgetList)))
+
     for entry in iter(myBudgetList):
-        print (entry)
+            print (entry)
+
     flg, ax = plt.subplots()
     labels = 'Expenses','Overages','Budget'
     values = [myBudgetList.sum_expenses,myBudgetList.sum_overages,myBudgetList.budget]
-    ax.bar(labels,values)
-    color=['green','red','blue']
+
+
+    ax.bar(labels,values,color=['green','red','blue'])
     ax.set_title('Your total Expenses vs. total budget')
     plt.show()
 

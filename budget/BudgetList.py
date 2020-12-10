@@ -41,17 +41,19 @@ def main():
     expenses.read_expenses('data/spending_data.csv')
     for expense in expenses.list:
             myBudgetList.append(expense.amount)
+
     print ('The count of all expenses: ' + str(len(myBudgetList)))
 
-    for entry in iter(myBudgetList):
+    for entry in myBudgetList:
             print (entry)
 
     flg, ax = plt.subplots()
-    labels = 'Expenses','Overages','Budget'
+
+    labels = ['Expenses','Overages','Budget'] 
     values = [myBudgetList.sum_expenses,myBudgetList.sum_overages,myBudgetList.budget]
 
 
-    ax.bar(labels,values,color=['green','red','blue'])
+    ax.bar(labels, values, color=['green','red','blue'])
     ax.set_title('Your total Expenses vs. total budget')
     plt.show()
 

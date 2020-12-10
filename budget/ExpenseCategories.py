@@ -36,7 +36,7 @@ expenses.read_expenses('data/spending_data.csv')
     ))
 
     fig,ax=plt.subplots()
-    labels = ['Expenses','Overages','Budget']
+    labels = ['Necessary','Food','Unnecssary']
 
     divided_expenses_sum = []
     for category_exps in divided_set_comp:
